@@ -1,0 +1,96 @@
+.education-card {
+  position: relative;
+  padding: 38px;
+  color: var(--white);
+  background: var(--night);
+  border-radius: 3px;
+  box-shadow: 18px 18px 0 #dfd9ce;
+}
+
+.education-card__icon {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 42px;
+  height: 42px;
+}
+
+.education-card__icon-part {
+  position: absolute;
+  display: block;
+  background: var(--coral);
+  border-radius: 50%;
+}
+
+.education-card__icon-part--top {
+  width: 38px;
+  height: 12px;
+  top: 7px;
+  left: 2px;
+  border-radius: 50% 50% 40% 40%;
+}
+
+.education-card__icon-part--base {
+  width: 28px;
+  height: 12px;
+  top: 19px;
+  left: 7px;
+  border-radius: 2px 2px 8px 8px;
+}
+
+.education-card__icon-part--tassel {
+  width: 3px;
+  height: 15px;
+  top: 16px;
+  right: 1px;
+  border-radius: 2px;
+}
+
+.education-card__label {
+  margin: 0 0 60px;
+  color: var(--coral);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.education-card__title {
+  max-width: 250px;
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.education-card__school {
+  margin: 5px 0;
+  color: #aeb8c4;
+  font-size: 14px;
+}
+
+.education-card__rule {
+  height: 1px;
+  margin: 28px 0 22px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.education-card__note {
+  margin: 0;
+  color: #8996a5;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .education-card {
+    align-self: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .education-card {
+    box-shadow: 10px 10px 0 #dfd9ce;
+  }
+}

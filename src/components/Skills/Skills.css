@@ -1,0 +1,40 @@
+.skills {
+  padding-top: 130px;
+  padding-bottom: 140px;
+  color: var(--white);
+  background: var(--night);
+}
+
+.skills__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skills__card {
+  flex: 1 1 calc(25% - 1px);
+}
+
+@media (max-width: 1050px) {
+  .skills__card {
+    flex-basis: calc(50% - 1px);
+  }
+}
+
+@media (max-width: 560px) {
+  .skills {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .skills__cards {
+    margin-top: 52px;
+  }
+
+  .skills__card {
+    flex-basis: 100%;
+  }
+}

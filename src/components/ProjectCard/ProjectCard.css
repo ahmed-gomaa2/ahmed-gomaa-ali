@@ -1,0 +1,193 @@
+.project-card {
+  min-height: 390px;
+  display: flex;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--night);
+  border-radius: 4px;
+}
+
+.project-card__preview {
+  position: relative;
+  flex: 1.05 1 0;
+  min-width: 0;
+  min-height: 390px;
+  display: block;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(11, 19, 32, 0.18), rgba(11, 19, 32, 0.78)),
+    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.project-card:hover .project-card__preview {
+  filter: saturate(1.08);
+  transform: scale(1.015);
+}
+
+.project-card--coral .project-card__preview {
+  background:
+    linear-gradient(135deg, rgba(233, 106, 85, 0.16), rgba(11, 19, 32, 0.78)),
+    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+}
+
+.project-card--mint .project-card__preview {
+  background:
+    linear-gradient(135deg, rgba(86, 190, 165, 0.12), rgba(11, 19, 32, 0.78)),
+    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+}
+
+.project-card--gold .project-card__preview {
+  background:
+    linear-gradient(135deg, rgba(220, 169, 66, 0.14), rgba(11, 19, 32, 0.78)),
+    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+}
+
+.project-card__number {
+  position: absolute;
+  top: 26px;
+  left: 28px;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project-card__gallery-badge {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  color: var(--night);
+  background: var(--mint);
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 999px;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+}
+
+.project-card__gallery-badge svg,
+.project-card__action svg {
+  width: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.project-card__content {
+  flex: 0.95 1 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 52px;
+}
+
+.project-card__category {
+  margin: 0 0 18px;
+  color: var(--mint);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.project-card__title {
+  margin: 0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.project-card__description {
+  margin: 0;
+  color: #98a5b3;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.project-card__tag {
+  color: #b3bec9;
+  font-size: 11px;
+}
+
+.project-card__tag:not(:last-child)::after {
+  content: "/";
+  margin-left: 8px;
+  color: #465567;
+}
+
+.project-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.project-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 0 14px;
+  color: #d7dee5;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid #526071;
+  border-radius: 999px;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.project-card__action:hover {
+  color: var(--mint);
+  border-color: rgba(89, 211, 178, 0.7);
+  transform: translateY(-2px);
+}
+
+.project-card__action--live {
+  color: var(--night);
+  background: var(--coral);
+  border-color: var(--coral);
+}
+
+@media (max-width: 800px) {
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-card__preview {
+    flex-basis: auto;
+    min-height: 340px;
+  }
+
+  .project-card__content {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-card__preview {
+    min-height: 270px;
+  }
+
+  .project-card__content {
+    padding: 38px 28px 42px;
+  }
+
+  .project-card__gallery-badge {
+    right: 18px;
+    bottom: 18px;
+  }
+}

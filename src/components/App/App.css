@@ -1,0 +1,84 @@
+:root {
+  --ink: #111b27;
+  --ink-soft: #3f4b57;
+  --night: #0b1320;
+  --night-light: #121e2d;
+  --paper: #f5f1e9;
+  --white: #fffdf8;
+  --coral: #ff6b55;
+  --mint: #59d3b2;
+  --gold: #f4bd50;
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+a {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+}
+
+svg {
+  display: block;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app__main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__section {
+  padding-right: max(28px, calc((100vw - var(--max-width)) / 2));
+  padding-left: max(28px, calc((100vw - var(--max-width)) / 2));
+}
+
+@media (max-width: 560px) {
+  .app__section {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
