@@ -42,7 +42,6 @@ function ProjectCard({
     <article
       className={cardClassName}
       style={{
-        "--project-card-cover": `url(${coverImage})`,
         "--project-card-cover-position": coverPosition || "center top",
       }}
     >
@@ -51,6 +50,13 @@ function ProjectCard({
         href={galleryLink}
         aria-label={`Open ${title} gallery`}
       >
+        <img
+          className="project-card__preview-image"
+          src={coverImage}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
         <span className="project-card__number">{number}</span>
         <span className="project-card__gallery-badge">
           <GalleryIcon />

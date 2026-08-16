@@ -14,10 +14,27 @@
   min-height: 390px;
   display: block;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(11, 19, 32, 0.18), rgba(11, 19, 32, 0.78)),
-    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+  background: #101c2b;
   transition: transform 220ms ease, filter 220ms ease;
+}
+
+.project-card__preview::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(11, 19, 32, 0.18), rgba(11, 19, 32, 0.78));
+  pointer-events: none;
+}
+
+.project-card__preview-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: var(--project-card-cover-position, center top);
 }
 
 .project-card:hover .project-card__preview {
@@ -25,28 +42,23 @@
   transform: scale(1.015);
 }
 
-.project-card--coral .project-card__preview {
-  background:
-    linear-gradient(135deg, rgba(233, 106, 85, 0.16), rgba(11, 19, 32, 0.78)),
-    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+.project-card--coral .project-card__preview::after {
+  background: linear-gradient(135deg, rgba(233, 106, 85, 0.16), rgba(11, 19, 32, 0.78));
 }
 
-.project-card--mint .project-card__preview {
-  background:
-    linear-gradient(135deg, rgba(86, 190, 165, 0.12), rgba(11, 19, 32, 0.78)),
-    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+.project-card--mint .project-card__preview::after {
+  background: linear-gradient(135deg, rgba(86, 190, 165, 0.12), rgba(11, 19, 32, 0.78));
 }
 
-.project-card--gold .project-card__preview {
-  background:
-    linear-gradient(135deg, rgba(220, 169, 66, 0.14), rgba(11, 19, 32, 0.78)),
-    var(--project-card-cover) var(--project-card-cover-position, center top) / cover;
+.project-card--gold .project-card__preview::after {
+  background: linear-gradient(135deg, rgba(220, 169, 66, 0.14), rgba(11, 19, 32, 0.78));
 }
 
 .project-card__number {
   position: absolute;
   top: 26px;
   left: 28px;
+  z-index: 2;
   color: rgba(255, 255, 255, 0.82);
   font-family: Consolas, monospace;
   font-size: 12px;
