@@ -1,4 +1,6 @@
 import { getAssetPath } from "../utils/paths";
+import huseinNadeemCover from "../assets/projects/husein-nadeem/screen-01.png";
+import takemeMarketplaceCover from "../assets/projects/takeme-marketplace/cover.png";
 
 export const skillGroups = [
   {
@@ -79,7 +81,7 @@ export const projects = [
       "A personal coaching landing page focused on clear messaging, direct contact, and a simple conversion path for Arabic-speaking users.",
     liveUrl: "https://huseinnadeem.com/",
     galleryPath: "/projects/husein-nadeem",
-    coverImage: getAssetPath("/assets/projects/husein-nadeem/screen-01.png"),
+    coverImage: huseinNadeemCover,
     screenshots: createScreenshots("husein-nadeem", 9, "Husein Nadeem"),
     tags: ["Landing Page", "Responsive UI", "Arabic Content"],
     tone: "coral",
@@ -92,7 +94,7 @@ export const projects = [
     description:
       "A mobile-first marketplace experience with RTL flows, profile tools, authentication screens, admin management, and multilingual content.",
     galleryPath: "/projects/takeme-marketplace",
-    coverImage: getAssetPath("/assets/projects/takeme-marketplace/cover.png"),
+    coverImage: takemeMarketplaceCover,
     coverPosition: "center center",
     screenshots: takemeScreenshots,
     galleryLayout: "phone",

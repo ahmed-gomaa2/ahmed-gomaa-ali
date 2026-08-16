@@ -54,7 +54,7 @@ function ProjectCard({
           className="project-card__preview-image"
           src={coverImage}
           alt=""
-          loading="lazy"
+          loading="eager"
           decoding="async"
         />
         <span className="project-card__number">{number}</span>
