@@ -14,15 +14,18 @@ function Header() {
   const closeMenu = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen((open) => !open);
   const navClassName = menuOpen ? "header__nav header__nav--open" : "header__nav";
+  const menuButtonClassName = menuOpen
+    ? "header__menu-toggle header__menu-toggle--open"
+    : "header__menu-toggle";
 
   return (
     <header className="header">
       <Brand onClick={closeMenu} />
 
       <button
-        className="header__menu-toggle"
+        className={menuButtonClassName}
         type="button"
-        aria-label="Toggle navigation"
+        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
         aria-expanded={menuOpen}
         onClick={toggleMenu}
       >

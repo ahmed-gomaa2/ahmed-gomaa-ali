@@ -9,13 +9,25 @@ import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import Projects from "../Projects/Projects";
 import Skills from "../Skills/Skills";
+import SplashScreen from "../SplashScreen/SplashScreen";
 import "./App.css";
 
+const SPLASH_DURATION = 2000;
+
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [currentPath, setCurrentPath] = useState(getProjectPathFromHash);
   const galleryProject = projects.find(
     (project) => project.galleryPath === currentPath
   );
+
+  useEffect(() => {
+    const timerId = window.setTimeout(() => {
+      setShowSplash(false);
+    }, SPLASH_DURATION);
+
+    return () => window.clearTimeout(timerId);
+  }, []);
 
   useEffect(() => {
     function updateCurrentPath() {
@@ -39,7 +51,25 @@ function App() {
     }, 0);
   }, [currentPath]);
 
-  return (
+  useEffect(() => {
+    if (!currentPath.startsWith("/projects/")) {
+      return undefined;
+    }
+
+    const timerId = window.setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto",
+      });
+    }, 0);
+
+    return () => window.clearTimeout(timerId);
+  }, [currentPath]);
+
+  return showSplash ? (
+    <SplashScreen />
+  ) : (
     <div className="app">
       <Header />
       <main className="app__main">

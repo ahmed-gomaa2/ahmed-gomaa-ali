@@ -1,0 +1,222 @@
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 28px;
+  color: var(--white);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 22% 22%, rgba(89, 211, 178, 0.2), transparent 32%),
+    radial-gradient(circle at 78% 72%, rgba(255, 107, 85, 0.18), transparent 30%),
+    var(--night);
+  background-size: 42px 42px, 42px 42px, auto, auto, auto;
+}
+
+.splash-screen__glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: 0.42;
+  animation: splash-screen-float 1800ms ease-in-out infinite alternate;
+}
+
+.splash-screen__glow--mint {
+  top: 18%;
+  left: 14%;
+  background: rgba(89, 211, 178, 0.28);
+}
+
+.splash-screen__glow--coral {
+  right: 12%;
+  bottom: 12%;
+  background: rgba(255, 107, 85, 0.28);
+  animation-delay: 240ms;
+}
+
+.splash-screen__card {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 470px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 38px 38px;
+  text-align: center;
+  background: rgba(16, 28, 43, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(16px);
+  animation: splash-screen-card 520ms ease both;
+}
+
+.splash-screen__mark {
+  width: 74px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--night);
+  background: linear-gradient(135deg, var(--mint), var(--gold));
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  border-radius: 22px;
+  box-shadow: 0 18px 44px rgba(89, 211, 178, 0.24);
+}
+
+.splash-screen__name {
+  margin: 22px 0 8px;
+  color: var(--mint);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.splash-screen__title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 7vw, 62px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.splash-screen__command {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  padding: 12px 15px;
+  color: #d6dde6;
+  background: rgba(7, 12, 20, 0.62);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.splash-screen__prompt {
+  color: var(--gold);
+}
+
+.splash-screen__cursor {
+  width: 7px;
+  height: 15px;
+  display: inline-block;
+  background: var(--coral);
+  animation: splash-screen-cursor 760ms steps(1) infinite;
+}
+
+.splash-screen__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.splash-screen__tag {
+  padding: 8px 10px;
+  color: #b9c6d4;
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.splash-screen__progress {
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  margin-top: 32px;
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+}
+
+.splash-screen__progress-bar {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(90deg, var(--mint), var(--gold), var(--coral));
+  border-radius: inherit;
+  transform-origin: left;
+  animation: splash-screen-progress 2s ease-out both;
+}
+
+@media (max-width: 560px) {
+  .splash-screen {
+    padding: 20px;
+  }
+
+  .splash-screen__card {
+    padding: 40px 24px 32px;
+  }
+
+  .splash-screen__command {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-screen__glow,
+  .splash-screen__card,
+  .splash-screen__cursor,
+  .splash-screen__progress-bar {
+    animation: none;
+  }
+}
+
+@keyframes splash-screen-float {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(18px, -14px, 0) scale(1.08);
+  }
+}
+
+@keyframes splash-screen-card {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes splash-screen-cursor {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes splash-screen-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
